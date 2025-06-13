@@ -18,3 +18,17 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+    
+# Validation for posting news
+from .models import News
+class NewsSerializer(serializers.ModelSerializer):
+    author= serializers.ReadOnlyField(source='author.username')
+
+    class Meta:
+        model= News
+        fields= ('title', 'content', 'author', 'created_at')
+
+    def create(self, validated_data):
+        validated_data['author'] = self.context['request'].user
+        return News.objects.create(**validated_data)
+    
