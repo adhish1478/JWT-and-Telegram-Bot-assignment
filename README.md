@@ -111,7 +111,7 @@ Add screenshots in a /screenshots folder or embed them here.
 Example:
 
 ![Homepage](screenshots/homepage.png)
-![Login Page](screenshots/login.png)
+![Register Page](screenshots/register.png)
 ![Admin - News](screenshots/admin_news.png)
 
 
