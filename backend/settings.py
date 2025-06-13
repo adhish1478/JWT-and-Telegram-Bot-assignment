@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'user', # Custom user app
     'django_celery_results', # Celery results backend
     'telegram_bot', # Telegram bot app
+    'corsheaders', # CORS headers for API
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -69,6 +70,7 @@ CELERY_RESULT_BACKEND = 'django-db' # Use Django database to store Celery task r
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # CORS middleware
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,7 +79,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
