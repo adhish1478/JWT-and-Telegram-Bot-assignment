@@ -3,6 +3,7 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from .views import RegisterView, NewsView
+import user.views as views
 
 urlpatterns=[
 # URL patterns for user authentication- token generation and refresh
@@ -13,6 +14,8 @@ urlpatterns=[
 # URL patterns for news creation and listing
     path('news/', NewsView.as_view(), name='news_list_create'),
     path('news/<int:pk>/', NewsView.as_view(), name='news_detail'),
+# URL pattern for getting the current authenticated user's username
+    path('user/', views.current_user, name='current_user'),
 ]
 
 

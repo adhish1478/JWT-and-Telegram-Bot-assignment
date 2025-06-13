@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from .serializers import RegisterSerializer
 from rest_framework import status, generics
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
 from .tasks import send_verification_email  # Import the Celery task for sending emails
 # Create your views here.
 
@@ -35,3 +36,8 @@ class NewsView(generics.ListCreateAPIView):
     def get_serializer_context(self):
         return {'request': self.request}
     
+# View to get the current authenticated user's username
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def current_user(request):
+    return Response({"username": request.user.username})
