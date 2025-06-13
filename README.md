@@ -193,6 +193,5 @@ This project was developed as part of an internship assignment. All rights reser
 
 ✍️ Author
 
-Adhish Aravind
-GitHub Profile
-
+Adhish Aravind\
+LinkedIn Profile: https://www.linkedin.com/in/adhish-aravind-4bb81b242/
